@@ -23,7 +23,7 @@ body {
 
 .cartao {
     background-color: rgb(68, 47, 145);
-    height: 35rem;
+    height: 25rem;
     width: calc(33.333% - 20px);
     box-sizing: border-box;
     border: 3px solid rgba(255, 255, 255, 0.336);
