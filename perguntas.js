@@ -1,5 +1,11 @@
 criaCartao(
     'Psiquiatria',
+    'O que é psiquiatria?',
+    'A psiquiatria é uma área médica focada no estudo, diagnóstico, tratamento e prevenção de doenças mentais.'
+)
+
+criaCartao(
+    'Psiquiatria',
     'O que a psiquiatria trata?',
     'Distúrbios psicológicos.'
 )

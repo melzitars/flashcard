@@ -1,12 +1,14 @@
 :root {
-    --text-color: #3a15c0;
-    --card-front-color: #144480;
-    --card-back-color: #2241aa;
+    --text-color: #160535;
+    --card-front-color: #433b91;
+    --card-back-color: #9b86bd;
+    --border-color: rgba(255, 255, 255, 0.459);
 }
 
 body {
-    background-color: rgb(111, 89, 190);
-    font-family: 'Josefin Sans', sans-serif;
+    background: url('img/background-space.webp') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Bai Jamjuree', sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -14,156 +16,188 @@ body {
 #container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    padding: 2rem;
-    gap: 20px;
+    justify-content: space-between;
+    padding: 4rem;
+    gap: 3rem;
     max-width: 1200px;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
 }
 
 .cartao {
-    background-color: rgb(68, 47, 145);
-    height: 25rem;
-    width: calc(33.333% - 20px);
-    box-sizing: border-box;
-    border: 3px solid rgba(255, 255, 255, 0.336);
+    margin: 1rem 1rem;
+    height: 20rem;
+    flex-grow: 1;
+    flex-basis: calc(33% - 6rem);
+    border: 3px solid var(--border-color);
     border-radius: 0.8rem;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .cartao__conteudo {
+    background-color: var(--card-front-color);
     text-align: center;
     height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 300ms ease-in-out;
+    color: var(--text-color);
     width: 100%;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
-    transform-style: preserve-3d;
-    transition: transform 300ms ease-in-out;
     padding: 1rem;
-    box-sizing: border-box;
+    border-radius: 0.8rem;
 }
 
 .cartao__conteudo h3 {
-    background-color: rgb(98, 121, 224);
-    padding: 0.6rem;
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    text-align: left;
+    padding: 0.5rem;
     position: absolute;
-    top: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: 0.6rem;
     border-radius: 0.6rem;
-    font-size: 1.2vw;
-    z-index: 25;
-    color: white;
+    font-size: 1vw;
     backface-visibility: hidden;
+    top: 1rem;
+    left: 1rem;
     white-space: nowrap;
-}
-
-.cartao:hover .cartao__conteudo {
-    transform: rotateY(180deg);
+    z-index: 25;
+    background-color: rgba(66, 8, 114, 0.4);
 }
 
 .cartao__conteudo p {
-    margin: 0;
-    padding: 1rem;
-}
-
-.cartao__conteudo__pergunta,
-.cartao__conteudo__resposta {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    box-sizing: border-box;
+    margin-top: 1rem;
     padding: 2rem;
+    margin-top: 4rem;
     text-align: center;
-}
-
-.cartao__conteudo__pergunta p,
-.cartao__conteudo__resposta p {
-    margin: 0;
-    font-size: 1.4rem;
     line-height: 1.6;
     word-wrap: break-word;
     hyphens: auto;
 }
 
+.cartao__conteudo__pergunta p {
+    color: var(--text-color);
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    font-size: 1.4rem;
+}
+
+.cartao__conteudo__resposta p {
+    color: var(--text-color);
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    font-size: 1.4rem;
+}
+
+.cartao.active .cartao__conteudo {
+    transform: rotateY(180deg);
+}
+
 .cartao__conteudo__pergunta,
 .cartao__conteudo__resposta {
     backface-visibility: hidden;
     position: absolute;
     height: 100%;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    word-wrap: break-word;
+    hyphens: auto;
+    border-radius: 0.8rem;
 }
 
 .cartao__conteudo__resposta {
+    background-color: var(--card-back-color);
     transform: rotateY(180deg);
 }
 
 footer {
-    background-color: black;
-    color: white;
-    position: relative;
+    background-color: rgb(38, 115, 167);
+    color: rgb(89, 151, 146);
+    position: fixed;
     bottom: 0;
     width: 100%;
-    height: 2.5rem;
+    height: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0;
-    margin-top: 2rem;
 }
 
 footer p {
     text-align: center;
-    font-size: 0.8rem;
-    margin: 0;
+    font-size: 0.6rem;
+    margin-top: 0.5rem;
 }
 
 @media (max-width: 1024px) {
     .cartao {
-        width: calc(50% - 20px);
+        width: calc(50% - 2rem - 2px);
+        height: auto;
+        margin: 1rem 0.5rem;
+    }
+    .cartao__conteudo {
+        height: auto;
     }
     .cartao__conteudo h3 {
-        font-size: 1.5vw;
+        font-size: 2vw;
     }
-    .cartao__conteudo__pergunta p,
-    .cartao__conteudo__resposta p {
-        font-size: 1.3rem;
+    .cartao__conteudo__pergunta,
+    .cartao__conteudo__resposta {
+        font-size: 1.2rem;
+        height: auto;
+    }
+    #container {
+        padding: 2rem 1rem;
+        gap: 1.5rem;
     }
 }
 
 @media (max-width: 768px) {
     .cartao {
-        width: 100%;
+        width: calc(100% - 2rem);
         max-width: 400px;
+        margin: 1rem auto;
         height: auto;
     }
     .cartao__conteudo {
         height: auto;
     }
     .cartao__conteudo h3 {
-        font-size: 4vw;
+        font-size: 5vw;
         position: static;
         transform: none;
         text-align: center;
+        margin-bottom: 1rem;
     }
-    .cartao__conteudo__pergunta p,
-    .cartao__conteudo__resposta p {
+    .cartao__conteudo__pergunta,
+    .cartao__conteudo__resposta {
         font-size: 1rem;
+        padding: 1.5rem;
+        height: auto;
     }
     #container {
-        padding: 1rem;
-        gap: 15px;
+        padding: 1.5rem 1rem;
+        gap: 1rem;
     }
     footer {
         height: auto;
